@@ -5,7 +5,7 @@
 --%>
 <!-- Bootstrap core CSS -->
 <link href="/WebStore/src/css/bootstrap.css" rel="stylesheet" >
-<script src="/WebStore/src/js/bootstrap.js"></script>
+
 <!-- Custom styles for this template -->
 <link href="/WebStore/shop-homepage.css" rel="stylesheet">
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -16,14 +16,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-
+            <li class="nav-item active"><a class="nav-link" href="#"><span class="glyphicon shopping-cart">Cart</span></a></li>
+            
+            <%if(session.getAttribute("uid")!=null){%>
             <li class="nav-item">
                 <a class="nav-link">Hello, <%=session.getAttribute("uid")%></a>
             </li>
-            <li class="nav-item active"><a class="nav-link" href="#"><span class="glyphicon glyphicon-heart">Cart</span></a></li>
+            
             <li class="nav-item active">
-             <a class="nav-link" href="/WebStore/login.html">logout</a>
+             <a class="nav-link" href="/WebStore/logout.jsp">logout</a>
             </li>
+            <%} else {%>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/WebStore/login.html">Login</a>
+                </li>
+            <%}%>
           </ul>
         </div>
       </div>
